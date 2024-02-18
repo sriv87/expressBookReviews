@@ -62,9 +62,20 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
         res.send(`Review from customer ${customer} updated`)
     }
     }
+    else{
+        res.send("Unable to find author")
+    }
   
   
   //return res.status(300).json({message: "Yet to be implemented"});
+});
+
+regd_users.delete("/auth/review/:isbn", (req,res)=> {
+    const isbn = req.params.isbn
+    delete books[isbn].reviews[req.session.authorization.username];
+    //console.log(availreviews)
+    
+    res.send(`${req.session.authorization.username} review deleted`);
 });
 
 module.exports.authenticated = regd_users;
