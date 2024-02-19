@@ -64,17 +64,17 @@ public_users.get('/isbn/:isbn',function (req, res) {
 });
   
 // Get book details based on author
-//public_users.get('/author/:author',function (req, res) {
-  //const books_keys = Object.keys(books);
-  //const author = req.params.author;
-  //for (let i=0;i<books_keys.length;i++){
-    //if(books[books_keys[i]].author===author){
-        //res.send(books[books_keys[i]]);
-    //}
-  //}
-//});
+public_users.get('/author/:author',function (req, res) {
+  const books_keys = Object.keys(books);
+  const author = req.params.author;
+  for (let i=0;i<books_keys.length;i++){
+    if(books[books_keys[i]].author===author){
+        res.send(books[books_keys[i]]);
+    }
+  }
+});
 
-public_users.get('/author/:author_task_12',function (req, res) {
+public_users.get('/authors/:author_task_12',function (req, res) {
     const books_keys = Object.keys(books);
     const author = req.params.author_task_12;
     console.log(author);
@@ -88,18 +88,18 @@ public_users.get('/author/:author_task_12',function (req, res) {
     get_books.then(() => console.log("Promise for Task 12 resolved"));
   });
 
-// Get all books based on title
-//public_users.get('/title/:title',function (req, res) {
-    //const books_keys = Object.keys(books);
-    //const title = req.params.title;
-    //for (let i=0;i<books_keys.length;i++){
-        //if(books[books_keys[i]].title===title){
-           // res.send(books[books_keys[i]]);
-        //}
-      //}
-//});
+//Get all books based on title
+public_users.get('/title/:title',function (req, res) {
+    const books_keys = Object.keys(books);
+    const title = req.params.title;
+    for (let i=0;i<books_keys.length;i++){
+        if(books[books_keys[i]].title===title){
+           res.send(books[books_keys[i]]);
+        }
+      }
+});
 
-public_users.get('/title/:title_task_13',function (req, res) {
+public_users.get('/titles/:title_task_13',function (req, res) {
     const books_keys = Object.keys(books);
     const title = req.params.title_task_13;
     
